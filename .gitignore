@@ -1,10 +1,10 @@
 # Dependencies
-node_modules/
+node_modules
 package-lock.json
 
 # IDE
-.idea/
-.vscode/
+.idea
+.vscode
 
 # logs
-logs/
+logs
