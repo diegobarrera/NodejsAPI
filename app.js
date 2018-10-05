@@ -3,11 +3,10 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const winston = require('./configuration/winston')
-
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
-
 const app = express()
+
+var indexRouter = require('./src/routes/index')
+var usersRouter = require('./src/routes/index')
 
 app.use(morgan('combined', {
   stream: winston.stream
@@ -27,8 +26,8 @@ app.use(function (err, req, res, next) {
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
-  // structure winston logs
-  winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`)
+  // add this line to include winston logging
+  // winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`)
 
   // render the error page
   res.status(err.status || 500)

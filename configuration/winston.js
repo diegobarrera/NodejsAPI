@@ -1,11 +1,16 @@
 var appRoot = require('app-root-path')
 var winston = require('winston')
+const environment = process.env.NODE_ENV
+
+const myFormat = winston.format.printf(info => {
+  return `${info.level} => ${info.message} `
+})
 
 // define the custom settings for each transport (file, console)
 var options = {
   file: {
     level: 'info',
-    filename: `${appRoot}/logs/app.log`,
+    filename: `${appRoot}/logs/${environment}.log`,
     handleExceptions: true,
     json: true,
     maxsize: 5242880, // 5MB
@@ -13,21 +18,28 @@ var options = {
     colorize: false
   },
   console: {
-    level: 'debug',
+    level: 'info',
     handleExceptions: true,
-    json: false,
-    colorize: true
+    format: winston.format.combine(
+      winston.format.timestamp(),
+      winston.format.simple(),
+      winston.format.colorize(),
+      myFormat
+    )
   }
 }
+const fileTransport = new winston.transports.File(options.file)
+const consoleTransport = new winston.transports.Console(options.console)
 
 // instantiate a new Winston Logger with the settings defined above
 var logger = winston.createLogger({
-  transports: [
-    new winston.transports.File(options.file),
-    new winston.transports.Console(options.console)
-  ],
+  transports: [fileTransport, consoleTransport],
   exitOnError: false // do not exit on handled exceptions
 })
+
+if (environment === 'production') {
+  logger.remove(consoleTransport)
+}
 
 // create a stream object with a 'write' function that will be used by `morgan`
 logger.stream = {
