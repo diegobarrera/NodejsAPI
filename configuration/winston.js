@@ -1,13 +1,13 @@
-var appRoot = require('app-root-path')
-var winston = require('winston')
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV || 'development'
+const appRoot = require('app-root-path')
+const winston = require('winston')
 
 const myFormat = winston.format.printf(info => {
   return `${info.level} => ${info.message} `
 })
 
 // define the custom settings for each transport (file, console)
-var options = {
+const options = {
   file: {
     level: 'info',
     filename: `${appRoot}/logs/${environment}.log`,
@@ -21,7 +21,6 @@ var options = {
     level: 'info',
     handleExceptions: true,
     format: winston.format.combine(
-      winston.format.timestamp(),
       winston.format.simple(),
       winston.format.colorize(),
       myFormat
@@ -32,7 +31,7 @@ const fileTransport = new winston.transports.File(options.file)
 const consoleTransport = new winston.transports.Console(options.console)
 
 // instantiate a new Winston Logger with the settings defined above
-var logger = winston.createLogger({
+const logger = winston.createLogger({
   transports: [fileTransport, consoleTransport],
   exitOnError: false // do not exit on handled exceptions
 })
