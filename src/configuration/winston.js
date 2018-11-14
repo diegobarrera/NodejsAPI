@@ -10,7 +10,7 @@ const myFormat = winston.format.printf(info => {
 const options = {
   file: {
     level: 'info',
-    filename: `${appRoot}/logs/${environment}.log`,
+    filename: `${appRoot}/src/logs/${environment}.log`,
     handleExceptions: true,
     json: true,
     maxsize: 5242880, // 5MB

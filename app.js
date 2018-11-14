@@ -2,7 +2,7 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
-const winston = require('./configuration/winston')
+const winston = require('./src/configuration/winston')
 const app = express()
 
 const indexRouter = require('./src/routes/index')
