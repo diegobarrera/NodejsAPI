@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "author": "diegobarrera",
   "descripction": "Template project for a Node.js API",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "engines": {
     "node": "^8.12.0",
     "npm": "^6.4.0"
