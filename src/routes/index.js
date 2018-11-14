@@ -13,16 +13,29 @@ const swaggerSpec = require('../docs/swaggerDef')
  *         description: ok
  */
 router.get('/', function (req, res, next) {
-  res.send('ok')
+  try {
+    res.json({
+      status: 'ok'
+    })
+  } catch (e) {
+    next(e)
+  }
 })
 
 // Documentation
 router.get('/swagger.json', (req, res) => {
-    res.setHeader('Content-Type', 'application/json')
-    res.send(swaggerSpec)
+  try {
+    res.json(swaggerSpec)
+  } catch (e) {
+    next(e)
+  }
 })
 router.get('/docs', (req, res) => {
-    res.sendFile(path.join(__dirname, '../docs/index.html'))
+  try {
+   res.sendFile(path.join(__dirname, '../docs/index.html'))
+  } catch (e) {
+    next(e)
+  }
 })
 
 module.exports = router
