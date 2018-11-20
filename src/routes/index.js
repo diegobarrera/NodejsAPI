@@ -36,6 +36,7 @@ router.get('/docs', (req, res) => {
   } catch (e) {
     next(e)
   }
+
 })
 
 module.exports = router

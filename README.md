@@ -28,7 +28,6 @@ There is a log folder with the logs for each environment, once there could be se
 # Documentation
 Swagger Documentation is available in `/docs/index.html`
 
-
 ## Contributing
 To contribute to the project, fork this repository, push feature branches to your fork and then submit PR to the dev branch of this repo.
 
