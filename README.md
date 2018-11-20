@@ -3,7 +3,6 @@
 
 //TODO: serializer RoR https://github.com/danivek/json-api-serializer
 // TODO: npm install --save joi
-// TODO: ErrorHandler
 
 ## Getting started
 ### Environment
