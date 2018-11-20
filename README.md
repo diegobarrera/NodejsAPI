@@ -2,7 +2,8 @@
 ![Node Version][node-image]
 
 //TODO: serializer RoR https://github.com/danivek/json-api-serializer
-//TODO: environmnent variables - dotenv 
+// TODO: npm install --save joi
+// TODO: ErrorHandler
 
 ## Getting started
 ### Environment

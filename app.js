@@ -2,7 +2,7 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
-const winston = require('./configuration/winston')
+const winston = require('./src/configuration/winston')
 const app = express()
 
 const indexRouter = require('./src/routes/index')
@@ -30,7 +30,7 @@ const errorHandler = (err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  res.send('error')
 }
 app.use(errorHandler)
 
