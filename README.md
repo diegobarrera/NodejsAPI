@@ -15,7 +15,7 @@ There are 3 different environments (**production**, **development**, and **test*
 `npm run dev`
 
 1. Run the **Test** suite: </br>
-`npm test` or `npm test:coverage`
+`npm test` or `npm run test:coverage`
 
 ## Project Structure
 The API manage the following structure:
