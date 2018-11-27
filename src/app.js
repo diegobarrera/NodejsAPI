@@ -2,11 +2,10 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
-const winston = require('./src/configuration/winston')
+const winston = require('../src/configuration/winston')
 const app = express()
 
-const indexRouter = require('./src/routes/index')
-const usersRouter = require('./src/routes/index')
+const indexRouter = require('../src/routes/index')
 
 app.use(morgan('combined', {
   stream: winston.stream
@@ -17,8 +16,7 @@ app.use(express.urlencoded({
 }))
 app.use(cookieParser())
 
-app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/api', indexRouter)
 
 const errorHandler = (err, req, res, next) => {
   // set locals, only providing error in development
