@@ -24,4 +24,25 @@ describe('User', () => {
       expect(response.body).to.include.keys(['id', 'email', 'createdAt', 'updatedAt'])
     })
   })
+
+  context('POST /api/users/signIn', () => {
+    beforeEach(cleanDB)
+
+    it('Should return the JWT token', async () => {
+      await request(app)
+        .post('/api/user/signUp')
+        .set('Accept', 'application/json')
+        .send(userBody)
+        .expect(200)
+
+      const response = await request(app)
+        .post('/api/user/signIn')
+        .set('Accept', 'application/json')
+        .send(userBody)
+        .expect(200)
+
+      expect(response.body).to.have.property('token')
+      expect(response.body.token).to.be.a('string')
+    })
+  })
 })
