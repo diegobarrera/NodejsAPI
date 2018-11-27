@@ -2,7 +2,7 @@
 
 const configuration = {
   postgresDB: {
-    uri: process.env.DB_URI || 'postgres://postgres:@localhost:5432/postgres',
+    uri: process.env.DB_URI,
     options: {
       dialect: 'postgres',
       operatorsAliases: false,
@@ -13,9 +13,9 @@ const configuration = {
     }
   },
   firebaseDB: {
-    apiKey: 'AIzaSyDd8_RgweRwrYCaJQkJMjt3bCe6XRe4uMM',
-    authDomain: 'addressbookstrvdev.firebaseapp.com',
-    databaseURL: 'https://addressbookstrvdev.firebaseio.com',
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
     logging: true
   },
   authentication: {
