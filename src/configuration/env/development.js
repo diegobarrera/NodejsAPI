@@ -1,7 +1,15 @@
+'use strcit'
+
 const configuration = {
-  database: {
-    host: process.env.DB_HOST,
-    password: process.env.DB_PASSWORD
+  postgresDB: {
+    uri: process.env.DB_URI || 'postgres://postgres:@localhost:5432/postgres',
+    options: {
+      operatorsAliases: false,
+      ssl: false,
+      dialectOptions: {
+        ssl: false
+      }
+    }
   }
 }
 
