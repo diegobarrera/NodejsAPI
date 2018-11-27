@@ -1,23 +1,18 @@
+'use strict'
+
+const config = require('../configuration/env')
+
 module.exports = {
-  'development': {
-    'username': 'root',
-    'password': null,
-    'database': 'database_development',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  development: {
+    url: config.postgresDB.uri,
+    dialect: config.postgresDB.options.dialect
   },
-  'test': {
-    'username': 'root',
-    'password': null,
-    'database': 'database_test',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  test: {
+    url: config.postgresDB.uri,
+    dialect: config.postgresDB.options.dialect
   },
-  'production': {
-    'username': 'root',
-    'password': null,
-    'database': 'database_production',
-    'host': '127.0.0.1',
-    'dialect': 'mysql'
+  production: {
+    url: config.postgresDB.uri,
+    dialect: config.postgresDB.options.dialect
   }
 }

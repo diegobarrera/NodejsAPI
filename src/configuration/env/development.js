@@ -4,6 +4,7 @@ const configuration = {
   postgresDB: {
     uri: process.env.DB_URI || 'postgres://postgres:@localhost:5432/postgres',
     options: {
+      dialect: 'postgres',
       operatorsAliases: false,
       ssl: false,
       dialectOptions: {
