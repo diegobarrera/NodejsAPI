@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const { authenticate } = require('../middlewares/authentication')
+const { userController } = require('../controllers')
 
 router.get('/', function (req, res, next) {
   try {
@@ -13,5 +14,7 @@ router.get('/', function (req, res, next) {
     next(e)
   }
 })
+
+router.post('/users/signUp', userController.registration)
 
 module.exports = router
