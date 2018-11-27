@@ -1,9 +1,7 @@
 'use strict'
 
 const firebase = require('firebase')
-const {
-  firebaseDB
-} = require('../configuration/env')
+const { firebaseDB } = require('../configuration/env')
 
 const credentials = {
   apiKey: firebaseDB.apiKey,

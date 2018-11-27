@@ -8,7 +8,8 @@ const authenticate = async function (req, res, next) {
     if (jwtToken.startsWith('Bearer ')) {
       jwtToken = jwtToken.slice(7, jwtToken.length)
     }
-    await validateToken(jwtToken)
+    const decoded = await validateToken(jwtToken)
+    req.currentUser = decoded
     next()
   } catch (error) {
     next(error)

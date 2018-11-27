@@ -3,19 +3,13 @@
 const express = require('express')
 const router = express.Router()
 const { authenticate } = require('../middlewares/authentication')
-const { userController } = require('../controllers')
+const { userController, contactController, healthCheck } = require('../controllers')
 
-router.get('/', function (req, res, next) {
-  try {
-    res.json({
-      status: 'ok'
-    })
-  } catch (e) {
-    next(e)
-  }
-})
+router.get('/', healthCheck)
 
-router.post('/users/signUp', userController.registration)
-router.post('/users/signIn', userController.login)
+router.post('/user/signUp', userController.registration)
+router.post('/user/signIn', userController.login)
+
+router.post('/contact', authenticate, contactController.addContact)
 
 module.exports = router

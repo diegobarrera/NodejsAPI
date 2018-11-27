@@ -1,7 +1,7 @@
 'use strict'
 
 const { User } = require('../models')
-const { hashPassword, isValidPassword, generateToken } = require('../modules/authLogic')
+const { hashPassword, isValidPassword, generateToken } = require('../utils/authLogic')
 
 const registration = async (req, res, next) => {
   try {

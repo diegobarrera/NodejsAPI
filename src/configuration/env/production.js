@@ -1,9 +1,30 @@
 'use strcit'
 
 const configuration = {
-  database: {
-    host: process.env.DB_HOST,
-    password: process.env.DB_PASSWORD
+  postgresDB: {
+    uri: process.env.DB_URI || 'postgres://postgres:@localhost:5432/postgres',
+    options: {
+      dialect: 'postgres',
+      operatorsAliases: false,
+      ssl: false,
+      dialectOptions: {
+        ssl: false
+      }
+    }
+  },
+  firebaseDB: {
+    apiKey: 'AIzaSyDd8_RgweRwrYCaJQkJMjt3bCe6XRe4uMM',
+    authDomain: 'addressbookstrvdev.firebaseapp.com',
+    databaseURL: 'https://addressbookstrvdev.firebaseio.com',
+    logging: true
+  },
+  authentication: {
+    saltRounds: 8,
+    jwtSecret: process.env.AUTH_KEY || 'secret',
+    jwtOptions: {
+      expiresIn: '1h',
+      algorithm: 'HS256'
+    }
   }
 }
 
