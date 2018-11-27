@@ -1,3 +1,5 @@
+'use strict'
+
 const environment = process.env.NODE_ENV || 'development'
 const appRoot = require('app-root-path')
 const winston = require('winston')
