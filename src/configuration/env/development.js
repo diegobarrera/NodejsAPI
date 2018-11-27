@@ -10,6 +10,12 @@ const configuration = {
         ssl: false
       }
     }
+  },
+  firebaseDB: {
+    apiKey: 'AIzaSyDd8_RgweRwrYCaJQkJMjt3bCe6XRe4uMM',
+    authDomain: 'addressbookstrvdev.firebaseapp.com',
+    databaseURL: 'https://addressbookstrvdev.firebaseio.com',
+    logging: true
   }
 }
 

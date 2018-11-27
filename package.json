@@ -10,8 +10,9 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node ./src/bin/www",
-    "dev": "NODE_ENV=development nodemon ./src/bin/www",
-    "test": "mocha ./src/tests/**/*.js"
+    "dev": "NODE_ENV=development node_modules/.bin/nodemon ./src/bin/www",
+    "test": "node_modules/.bin/mocha ./src/tests/**/*.js",
+    "test:coverage": "node_modules/.bin/mocha"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
