@@ -23,11 +23,13 @@ after_success:
 - echo build succeeded    
 deploy:
   - provider: heroku
-    app: diegobarreraci
+    app: diegobarrera
     api_key:
       secure: "TfSHPvK5uAu35OoasEDdZfDcXMfRJeFXVq3F6ngftWH5tdKAN9G0vBIsKljtEsLLRb9psECtQAzYfwqW7rODmlW3ciswjN+2n00uw3DOEnwf49J1UHR3b/Oz1cu0z+m4VOr9TypgdLA1XIDKc0hqczZS6uuhtyCj9LG4rGfcT/UmuY3QUTTz81Ot79/92lMV/PdVuZxnnqtAtoigje5Iq1pmxCmVEBZE+rd9bD7Cc6NAUfbapuJUUVYGiZEDkM06vSqWKq5qsCUWZpHBEs021PIabhejhLZ2VdzjcnR6SttZS8owTQGxk5ioyPfSCjv/QCrmW0iZmq99m8Z4w3bXGlAaYwdMfBD+cWWBYhxL57LF+IYFFu7bNLygIolCDEiS0XQeTjACCyhTdf739Kleywpg718JUGkjXTUfI7BUH85p0u5SNBhZleN8Cp8UXv6/KQIf0d37B6QcvkSNiVITr7gq+92HXObau/30W/dZxe/esTzCUmN4AmEJq+CrDg09AYqL+AsC+q/WQ38vEyIoT5tUTOlVFWZfsIUcGRRn8/ggadr7YDg09kxTpQIr1G7/a3ZzAaGzsC3C/0jdMP/Wc12SRHV841al9X+LsxgkNVNOtHIOgHvjM4xjOD1Xr8wVELlTnYIiyMYjM4p3mdY/wf+SNIawpshVu2Z/GJns9ps="
     on:
         branch:
           - master
+    run:
+      - npm run db:migrate
 notifications:
   email: false
