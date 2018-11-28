@@ -1,34 +1,48 @@
-# Template for API
 ![Node Version][node-image]
 
-//TODO: serializer RoR https://github.com/danivek/json-api-serializer
-// TODO: npm install --save joi
+# STRV Project - Address Book
 
 ## Getting started
+The following is a Node.js API using Express.js that implements the address-book project.
+
 ### Environment
-Execute in production mode with:
+There are 3 different environments (**production**, **development**, and **test**). In order to execute the API in one of them, use the following commands:</br>
+
+1. **Production** mode:</br>
 `npm start`
 
-Execute in development mode with: 
+1. **Development** mode: </br>
 `npm run dev`
 
-Execute in tests with: 
-`npm test` 
-### Project Structure
-The following is the ideal structure of the project
+1. Run the **Test** suite: </br>
+`npm test` or `npm run test:coverage`
+
+## Project Structure
+The API manage the following structure:
+```
+TestProject
+├── package.json
+├── src
+│   ├── app.js
+│   ├── bin
+│   ├── configuration
+│   │   ├── env
+│   │   ├── migrations
+│   │   ├── seeders
+│   ├── controllers
+│   ├── middlewares
+│   ├── models
+│   ├── routes
+│   └── utils
+└── tests
 ```
 
-```
-
-## Logging
-
-There is a log folder with the logs for each environment, once there could be sent to Cloudwatch or something more elaborated like the E.L.K. stack, also take into consideration the implementation of a log-rotate to prevent write big files into a server.
-
-# Documentation
-Swagger Documentation is available in `/docs/index.html`
+## Documentation
+API Swagger Documentation is available in `/docs/index.html`
 
 
 ## Contributing
-To contribute to the project, fork this repository, push feature branches to your fork and then submit PR to the dev branch of this repo.
+All changes are welcome. If you run into any bugs, please file an issue and explain it.
 
-[node-image]: https://img.shields.io/badge/node-8.12.0-brightgreen.svg
+
+[node-image]: https://img.shields.io/badge/node-10.13.0-brightgreen.svg
