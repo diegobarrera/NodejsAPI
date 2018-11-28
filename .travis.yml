@@ -1,3 +1,4 @@
+sudo: required
 dist: trusty
 language: node_js
 node_js:
@@ -8,19 +9,22 @@ branches:
 services:
 - docker
 env:
-- NODE_ENV=test
+  global:
+    - NODE_ENV=test
+    - DATABASE_URL=postgres://postgres@localhost/test
 cache:
   directories:
   - node_modules
 install:
 - npm install
 before_script:
+- sudo service postgresql stop
+- npm run lint
 - npm run mount
 script:
-- npm run lint
-- npm run test:coverage
+- npm test
 after_success:
-- echo build succeeded    
+- echo build succeeded
 deploy:
   - provider: heroku
     app: diegobarrera
@@ -29,7 +33,6 @@ deploy:
     on:
         branch:
           - master
-    run:
-      - npm run db:migrate
+    run: npm run db:migrate
 notifications:
   email: false

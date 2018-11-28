@@ -1,13 +1,14 @@
 version: '3'
 services:
   postgres:
-    image: postgres:9.6.2-alpine
+    image: sameersbn/postgresql:10
+    ports:
+    - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: test
+     - DB_NAME=test
+     - PG_TRUST_LOCALNET=true
   web:
     build: .
-    command: npm test
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
@@ -15,6 +16,3 @@ services:
       - "3000:3000"
     depends_on:
       - postgres
-    environment:
-      NODE_ENV: test
-      DATABASE_URL: postgres://postgres@postgres/test

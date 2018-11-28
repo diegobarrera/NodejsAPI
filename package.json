@@ -15,6 +15,7 @@
     "test:coverage": "NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha ./tests/**/*.js --exit",
     "db:migrate": "./node_modules/.bin/sequelize db:migrate --env production",
     "mount": "docker-compose up -d",
+    "umount": "docker-compose down",
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
