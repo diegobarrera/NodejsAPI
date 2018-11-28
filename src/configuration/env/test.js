@@ -13,9 +13,9 @@ const configuration = {
     }
   },
   firebaseDB: {
-    apiKey: 'AIzaSyDd8_RgweRwrYCaJQkJMjt3bCe6XRe4uMM',
-    authDomain: 'addressbookstrvdev.firebaseapp.com',
-    databaseURL: 'https://addressbookstrvdev.firebaseio.com',
+    apiKey: 'aaa',
+    authDomain: 'aaaa.firebaseapp.com',
+    databaseURL: 'https://aaa.firebaseio.com',
     logging: true
   },
   authentication: {
