@@ -16,7 +16,8 @@ There are 3 different environments (**production**, **development**, and **test*
 `npm run dev`
 
 1. Run the **Test** suite: </br>
-`npm test` or `npm run test:coverage`
+In order to run the test, use docker-compose to use a Postgres database with the command `npm run mount`<br /> 
+then run `npm test` or `npm run test:coverage`. Finally run `npm run unmount` to stop docker-compose.
 
 ## Project Structure
 The API manage the following structure:
