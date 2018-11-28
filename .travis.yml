@@ -22,7 +22,6 @@ script:
 after_success:
 - echo build succeeded
 deploy:
-  matrix:
   - provider: heroku
     app: diegobarreraci
     on:
