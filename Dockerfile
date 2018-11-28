@@ -1,6 +1,12 @@
-FROM node:10.13.0
+FROM node:10.13-alpine
+
+WORKDIR /usr/app
+
+COPY package*.json ./
 
 RUN npm install --production
-RUN npm start
+
+COPY . .
 
 EXPOSE 3000
+CMD [ "npm", "start" ]
