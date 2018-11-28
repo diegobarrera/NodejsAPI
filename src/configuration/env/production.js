@@ -2,25 +2,25 @@
 
 const configuration = {
   postgresDB: {
-    uri: process.env.DB_URI || 'postgres://postgres:@localhost:5432/postgres',
+    uri: process.env.DATABASE_URL,
     options: {
       dialect: 'postgres',
       operatorsAliases: false,
-      ssl: false,
+      ssl: true,
       dialectOptions: {
-        ssl: false
+        ssl: true
       }
     }
   },
   firebaseDB: {
-    apiKey: 'AIzaSyDd8_RgweRwrYCaJQkJMjt3bCe6XRe4uMM',
+    apiKey: process.env.FIREBASE_KEY,
     authDomain: 'addressbookstrvdev.firebaseapp.com',
     databaseURL: 'https://addressbookstrvdev.firebaseio.com',
     logging: true
   },
   authentication: {
     saltRounds: 8,
-    jwtSecret: process.env.AUTH_KEY || 'secret',
+    jwtSecret: process.env.AUTH_KEY,
     jwtOptions: {
       expiresIn: '1h',
       algorithm: 'HS256'
