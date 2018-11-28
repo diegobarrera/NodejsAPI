@@ -6,7 +6,8 @@ describe('Health Check', () => {
   context('GET /api', () => {
     it('Should receive an status 200 Ok', async () => {
       const fakeResponse = {
-        status: 'ok'
+        status: 'ok',
+        environment: 'test'
       }
       const response = await request(app)
         .get('/api')

@@ -17,4 +17,4 @@ services:
       - postgres
     environment:
       NODE_ENV: test
-      DB_URI: postgres://postgres@postgres/test
+      DATABASE_URL: postgres://postgres@postgres/test
