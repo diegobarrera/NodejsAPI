@@ -52,7 +52,7 @@ describe('Unit Tests', () => {
       const password = 'passwordForTesting'
       const hashedPassword = await authLogic.hashPassword(password)
       const isValid = await authLogic.isValidPassword(password, hashedPassword)
-      expect(isValid).to.be.a('boolean').to.be.true
+      expect(isValid).to.be.a('boolean').to.equal(true)
     })
 
     it('Should be an invalid password', async () => {
@@ -60,7 +60,7 @@ describe('Unit Tests', () => {
       const anotherPassword = 'anotherPasswordForTesting'
       const hashedPassword = await authLogic.hashPassword(password)
       const isValid = await authLogic.isValidPassword(anotherPassword, hashedPassword)
-      expect(isValid).to.be.a('boolean').to.be.false
+      expect(isValid).to.be.a('boolean').to.equal(false)
     })
   })
 })
