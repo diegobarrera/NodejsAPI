@@ -1,3 +1,5 @@
+'use strict'
+
 const request = require('supertest')
 const { expect } = require('chai')
 const app = require('../../src/app')
@@ -6,11 +8,11 @@ const sinon = require('sinon')
 
 describe('Contact', () => {
   context('POST /api/contact', () => {
-    let urlNewContact = 'https://namedatabase.firebaseio.com/contacts/2018/-LSMG344EiwSznvUCisB'
+    let firebaseUrl = 'https://namedatabase.firebaseio.com/contacts/2018/-LSMG344EiwSznvUCisB'
     before(() => {
       const { Contact } = require('../../src/models')
       sinon.stub(Contact.prototype, 'save').returns(
-        Promise.resolve(urlNewContact)
+        Promise.resolve(firebaseUrl)
       )
     })
 
@@ -37,7 +39,7 @@ describe('Contact', () => {
 
       expect(response.body).to.have.property('url')
       expect(response.body.url).to.be.a('string')
-      expect(response.body).to.deep.equal({ url: urlNewContact })
+      expect(response.body).to.deep.equal({ url: firebaseUrl })
     })
   })
 })
