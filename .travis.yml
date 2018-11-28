@@ -25,7 +25,7 @@ before_script:
 
 script:
   - npm run lint
-  - npm run coverage
+  - npm run test:coverage
 
 after_success:
   - echo build succeeded
