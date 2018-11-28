@@ -20,7 +20,7 @@ There are 3 different environments (**production**, **development**, and **test*
 ## Project Structure
 The API manage the following structure:
 ```
-STRVPROJECT
+TestProject
 ├── package.json
 ├── src
 │   ├── app.js

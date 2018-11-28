@@ -28,7 +28,7 @@ script:
   - npm run coverage
 
 after_success:
-  - echo Test successful!
+  - echo build succeeded
 
 notifications:
   email: false
