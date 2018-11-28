@@ -1,4 +1,5 @@
 ![Node Version][node-image]
+![Travis Status][travis-status]
 
 # STRV Project - Address Book
 
@@ -46,3 +47,4 @@ All changes are welcome. If you run into any bugs, please file an issue and expl
 
 
 [node-image]: https://img.shields.io/badge/node-10.13.0-brightgreen.svg
+[travis-status]: https://travis-ci.com/diegobarrera/TestProject.svg?branch=master

@@ -1,34 +1,34 @@
 dist: trusty
 language: node_js
 node_js:
-  - "10"
-
+- '10'
 branches:
   only:
-    - master
-
+  - master
 services:
-  - docker
-
+- docker
 env:
-  - NODE_ENV=test
-
+- NODE_ENV=test
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - npm install
-
+- npm install
 before_script:
-  - npm run mount
-
+- npm run mount
 script:
-  - npm run lint
-  - npm run test:coverage
-
+- npm run lint
+- npm run test:coverage
 after_success:
-  - echo build succeeded
-
+- echo build succeeded
+deploy:
+  matrix:
+  - provider: heroku
+    app: diegobarreraci
+    on:
+      branch:
+      - master
+  api_key:
+    secure: Bt0/GdY+OWAnD3koCooPfHVoGgqCLH8cU0pfjvv/xl1unYdvX5NGi7TaG1Z8C94zmtcZ5oHWOr22m9A4NPncKgFV9UWLp6mpHSA78ahq+H6fax6HbFcbEsfrSRJ6Rp/FsudR3RR5DgkjMZFugdmlVFs7CAoC6qGaP9JNqeLBYzAJkZgFYwhAKCBc8efL5AIpBA4TdsVWln0KFnVaiXncjP8vBl8v0KCajTiWGyBgJu25LaCeSNtBxp5AYGh5V6WapAVPC8rVToj/FAD8emv6LYRbO7vbmk1mPvrHthlB/6bLZTDb+Se3OVoOxyUM0gJD5uLdM2eWIOZaWZ8Zbx8JAOjfMD8ksWPfHaRywexNdmzaWNxJpanr1J38w8igvrb/CeXVBRMw4fE41J2U1YIM7zv3SKcLx6thaRDe4rgr9K+Jxqk9VVjkYtUc3hyhh2Sf0L0SyvbBBy6uBmQz0D7H9zUTAWZ9iwrBGs+wbh95mKhvsuH6Z6uGaXvXmqRz/x6DUUVq/CYHTjGg5qqy9WjEO2iJXGvCmYYWzCtVVaStP/MN97bP8SsVVX3vcVYr9vHYQ2+Roz9+yReHei0wrk7r/TQQHAM9fYSPdbCLZ7ZDEfW2jDQSPWgr/Dvsx0cppajEH62oen5Mw/9wcNyvu3e7ActLIbDYjD3WF9o9e+oaVxI=
 notifications:
   email: false
