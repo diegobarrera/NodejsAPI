@@ -36,10 +36,13 @@ TestProject
 │   ├── routes
 │   └── utils
 └── tests
+    ├── integration
+    ├── unit
+    └── utils
 ```
 
 ## Documentation
-API Swagger Documentation is available in `/docs/index.html`
+API Swagger Documentation is available [here](https://app.swaggerhub.com/apis/diegobarrera/address-book/0.0.1)
 
 
 ## Contributing
